@@ -1,3 +1,4 @@
 {
-  "mongoURI": "PUT_YOUR_MONGODB_URI_HERE"
+  "mongoURI": "PUT_YOUR_MONGODB_URI_HERE",
+  "jwtSecret": "PUT_YOUR_JWT_KEY_HERE"
 }
