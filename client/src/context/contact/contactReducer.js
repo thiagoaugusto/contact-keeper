@@ -15,6 +15,13 @@ export default (state, action) => {
         ...state,
         contacts: [...state.contacts, action.payload],
       };
+    case UPDATE_CONTACT:
+      return {
+        ...state,
+        contacts: state.contacts.map((contact) => {
+          return contact.id === action.payload.id ? action.payload : contact;
+        }),
+      };
     case DELETE_CONTACT:
       return {
         ...state,
@@ -22,6 +29,7 @@ export default (state, action) => {
           return contact.id !== action.payload;
         }),
       };
+
     case SET_CURRENT:
       return {
         ...state,
