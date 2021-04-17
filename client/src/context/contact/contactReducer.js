@@ -29,7 +29,6 @@ export default (state, action) => {
           return contact.id !== action.payload;
         }),
       };
-
     case SET_CURRENT:
       return {
         ...state,
@@ -39,6 +38,23 @@ export default (state, action) => {
       return {
         ...state,
         current: null,
+      };
+    case FILTER_CONTACTS:
+      return {
+        ...state,
+        filtered: state.contacts.filter((contact) => {
+          const regex = RegExp(`${action.payload}`);
+          return (
+            contact.name.match(regex) ||
+            contact.email.match(regex) ||
+            contact.phone.match(regex)
+          );
+        }),
+      };
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filtered: null,
       };
     default:
       return state;
