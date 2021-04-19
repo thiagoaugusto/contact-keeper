@@ -44,6 +44,16 @@ export default (state, action) => {
         ...state,
         error: null,
       };
+    case LOGOUT:
+      localStorage.removeItem('token');
+      return {
+        ...state,
+        token: null,
+        isAuthenticated: false,
+        loading: false,
+        user: null,
+        error: null,
+      };
     default:
       return state;
   }
